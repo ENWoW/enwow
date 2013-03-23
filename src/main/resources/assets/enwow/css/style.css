@@ -1,0 +1,88 @@
+body {
+    padding-top: 60px;
+}
+
+.containier {
+	width: 1200px;
+}
+
+.span12 {
+	width: 1200px;
+}
+
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-border-1 {
+    text-shadow: 0px 1px 0px #333333, 0px -1px 0px #333333, 1px 0px 0px #333333, -1px 0px 0px #333333, -1px -1px 0px #333333, -1px 1px 0px #333333, 1px 1px 0px #333333, 1px -1px 0px #333333;
+}
+
+.border-solid-1 {
+    border: solid 1px #333333;
+}
+
+.warrior {
+    color: #C79C6E;
+}
+.paladin {
+    color: #F58CBA;
+}
+.hunter {
+    color: #ABD473;
+}
+.rogue {
+    color: #FFF569;
+}
+.priest {
+    color: #FFFFFF;
+}
+.deathknight {
+    color: #C41F3B;
+}
+.shaman {
+    color: #0070DE;
+}
+.mage {
+    color: #69CCF0;
+}
+.warlock {
+    color: #9382c9;
+}
+.monk {
+    color: #00FF96;
+}
+.druid {
+    color: #FF7D0A;
+}
+
+.item {
+     color: #333333;
+}
+
+.item:active {
+    color: #333333;
+}
+
+.item:focus {
+    color: #333333;
+}
+
+.item:hover {
+    color: #333333;
+}
+
+.item:visited {
+    color: #333333;
+}
+
+.tooltip td {
+	padding: 2px;
+    border: none;
+}
+
+.weight {
+    font-weight: bolder;
+}

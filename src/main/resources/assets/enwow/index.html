@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ENWoW</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">EN WoW</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+<div class="container" style="width: 1200px">
+    <div id="loading" class="span2 center">
+        <img src="img/loading.gif">
+    </div>
+    <div data-bind="visible: chars().length > 0">
+        <div class="span12">
+            <div class="pull-left">
+                <label class="checkbox inline">
+                    <input type="checkbox" data-bind="checked: cloth">Cloth
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" data-bind="checked: leather">Leather
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" data-bind="checked: mail">Mail
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" data-bind="checked: plate">Plate
+                </label>
+            </div>
+            <div class="pull-right">
+                <label class="checkbox inline">
+                    <input type="checkbox" data-bind="checked: dps">Dps
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" data-bind="checked: healing">Healing
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" data-bind="checked: tank">Tank
+                </label>
+            </div>
+        </div>
+        <table class="span12 table">
+            <thead>
+            <tr>
+                <th data-bind="click: sortName" colspan="2">
+                    <a href="#">Name</a>
+                </th>
+                <th data-bind="click: sortAverageItemLevelEquipped">
+                    <a href="#">Item Level</a>
+                </th>
+                <th data-bind="click: sortHead">
+                    <a href="#">Head</a>
+                </th>
+                <th data-bind="click: sortNeck">
+                    <a href="#">Neck</a>
+                </th>
+                <th data-bind="click: sortShoulder">
+                    <a href="#">Shoulder</a>
+                </th>
+                <th data-bind="click: sortChest">
+                    <a href="#">Chest</a>
+                </th>
+                <th data-bind="click: sortWrist">
+                    <a href="#">Wrist</a>
+                </th>
+                <th data-bind="click: sortHands">
+                    <a href="#">Hands</a>
+                </th>
+                <th data-bind="click: sortWaist">
+                    <a href="#">Waist</a>
+                </th>
+                <th data-bind="click: sortLegs">
+                    <a href="#">Legs</a>
+                </th>
+                <th data-bind="click: sortFeet">
+                    <a href="#">Feet</a>
+                </th>
+                <th data-bind="click: sortFinger">
+                    <a href="#">Finger</a>
+                </th>
+                <th data-bind="click: sortFinger">
+                    <a href="#">Finger</a>
+                </th>
+                <th data-bind="click: sortTrinket">
+                    <a href="#">Trinket</a>
+                </th>
+                <th data-bind="click: sortTrinket">
+                    <a href="#">Trinket</a>
+                </th>
+                <th data-bind="click: sortMainHand">
+                    <a href="#">Main-Hand</a>
+                </th>
+                <th data-bind="click: sortOffHand">
+                    <a href="#">Off-Hand</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- ko foreach: chars -->
+            <tr data-bind="visible: selectedArmor($index()) && selectedRole($index())">
+                <td>
+                    <img src="" class="border-solid-1" data-bind="attr: {src: talentImage($index())}">
+                </td>
+                <td class="text-border-1" data-bind="css: classNames[classId]">
+                    <span data-bind="text: name"></span>
+                    <a href="#" data-bind="click: showDetails.bind($data, $index()), visible: !detailsVisible($index())">
+                        <i class="icon-chevron-down"></i>
+                    </a>
+                    <a href="#" data-bind="click: hideDetails.bind($data, $index()), visible: detailsVisible($index())">
+                        <i class="icon-chevron-up"></i>
+                    </a>
+                </td>
+                <td data-bind="text: items.averageItemLevelEquipped"></td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.head.itemLevel, tooltip: {content: getTooltip(items.head, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.neck.itemLevel, tooltip: {content: getTooltip(items.neck, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.shoulder.itemLevel, tooltip: {content: getTooltip(items.shoulder, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.chest.itemLevel, tooltip: {content: getTooltip(items.chest, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.wrist.itemLevel, tooltip: {content: getTooltip(items.wrist, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.hands.itemLevel, tooltip: {content: getTooltip(items.hands, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.waist.itemLevel, tooltip: {content: getTooltip(items.waist, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.legs.itemLevel, tooltip: {content: getTooltip(items.legs, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.feet.itemLevel, tooltip: {content: getTooltip(items.feet, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.finger1.itemLevel, tooltip: {content: getTooltip(items.finger1, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.finger2.itemLevel, tooltip: {content: getTooltip(items.finger2, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.trinket1.itemLevel, tooltip: {content: getTooltip(items.trinket1, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.trinket2.itemLevel, tooltip: {content: getTooltip(items.trinket2, classId, talents)}"></a>
+                </td>
+                <td>
+                    <a class="item" href="#" data-bind="text: items.mainHand.itemLevel, tooltip: {content: getTooltip(items.mainHand, classId, talents)}"></a>
+                </td>
+                <!-- ko if: $data.items.hasOwnProperty("offHand") -->
+                <td>
+                    <a class="item" href="#" data-bind="text: items.offHand.itemLevel, tooltip: {content: getTooltip(items.offHand, classId, talents)}"></a>
+                </td>
+                <!-- /ko -->
+                <!-- ko ifnot: $data.items.hasOwnProperty("offHand") -->
+                <td></td>
+                <!-- /ko -->
+            </tr>
+            <!-- ko if: detailsVisible($index()) -->
+            <tr>
+                <td colspan="18">
+                    Achievement Points: <span data-bind="text: achievementPoints"></span>
+                </td>
+            </tr>
+            <!-- /ko -->
+            <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
