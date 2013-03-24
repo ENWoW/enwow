@@ -1,17 +1,17 @@
 characterNames:
    - Adia
-#   - Arandar
+   - Arandar
    - Bav
-#   - Destronikus
+   - Destronikus
    - Islar
-#   - Jookie
-#   - Jumaná
-#   - Júmana
-#   - Melissé
-#   - Merò
-#   - Sheywa
-#   - Sàrin
-#   - Vereesia
+   - Jookie
+   - Jumaná
+   - Júmana
+   - Melissé
+   - Merò
+   - Sheywa
+   - Sàrin
+   - Vereesia
 http:
    rootPath: /enwow/api/*
    port: 7070

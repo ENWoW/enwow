@@ -181,7 +181,7 @@
                 </td>
                 <!-- ko if: $data.items.hasOwnProperty("offHand") -->
                 <td>
-                    <a class="item" href="#" data-bind="text: items.offHand.itemLevel, tooltip: {content: getTooltip(items.offHand, classId, talents)}"></a>
+                    <a class="item" href="#" data-bind="text: items.offHand.itemLevel, tooltip: {content: getTooltip(items.offHand, classId, talents, true)}"></a>
                 </td>
                 <!-- /ko -->
                 <!-- ko ifnot: $data.items.hasOwnProperty("offHand") -->
